@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>axios基本使用</title>
+</head>
+
+<body>
+  <div>
+    <button onclick="testGet()">GET请求</button>
+    <button onclick="testPost()">POST请求</button>
+    <button onclick="testPut()">PUT请求</button>
+    <button onclick="testDelete()">DELETE请求</button>
+  </div>
+
+  <script src="https://cdn.bootcss.com/axios/0.19.0/axios.js"></script>
+  <script>
+    // 指定默认配置
+    axios.defaults.baseURL = 'http://localhost:3000'
+
+    /* 1. GET请求：从服务器端获取数据 */
+    function testGet() {
+      // axios.get('/posts?id=1')
+      axios({
+        url: '/posts',
+        params: {
+          id: 1
+        }
+      })
+        .then(res => {
+          console.log('/posts get', res.data)
+        })
+    }
+
+    /* 2. POST请求：服务器保存数据 */
+    function testPost() {
+      // axios.post('/posts',{"title": "json-server3", "author": "typicode3"})
+      axios({
+        url: '/posts',
+        method: 'post',
+        data: { "title": "json-server4", "author": "typicode4" }
+      })
+        .then(res => {
+          console.log('/posts post', res.data)
+        })
+    }
+
+    /* 3. PUT请求：服务器端更新数据 */
+    function testPut() {
+      // axios.put('/posts/4', { "title": "json-server...", "author": "typicode..." })
+      axios({
+        url: '/posts/4',
+        method: 'put',
+        data: { "title": "json-server5", "author": "typicode5" }
+      })
+        .then(res => {
+          console.log('/posts put', res.data)
+        })
+    }
+
+    /* 4. DELETE请求：服务器端删除数据 */
+    function testDelete() {
+      // axios.delete('/posts/4')
+      axios({
+        url: '/posts/5',
+        method: 'delete'
+      })
+        .then(res => {
+          console.log('/posts delete', res.data)
+        })
+    }
+  </script>
+</body>
+</html>
