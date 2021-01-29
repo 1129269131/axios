@@ -1,3 +1,5 @@
+# 项目调试说明：test目录下的html文件直接使用浏览器打开即可开始测试（以下两个工具选择其一作为服务器启动）
+
 # json-server（用来快速搭建REST API的工具包）使用指南
 1、使用Visual Studio Code软件打开该项目
 2、npm install -g json-server（若未安装时需要安装）
